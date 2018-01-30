@@ -18,12 +18,14 @@ from views import (
     GithubOrgsView,
     GithubSubmitView,
     custom_404,
-    paymentview,
-    processview,
-    processcustomerandcharge,
-    createaccount,
-    createcharge,
-    createmerchant
+
+    # stripe payments
+    payment_view,
+    create_account,
+    process_customer_and_charge,
+    create_merchant,
+    process_view,
+    create_charge
 )
 
 urlpatterns = patterns(
@@ -33,22 +35,22 @@ urlpatterns = patterns(
         view=ProjectListView.as_view(),
         name='home'),
     url(regex='^charge/',
-        view=createcharge,
+        view=create_charge,
         name='create-charge-view'),
     url(regex='merchant/',
-        view=createmerchant,
+        view=create_merchant,
         name='create-merchant-view'),
-    url(regex='^createaccount/',
-        view=createaccount,
+    url(regex='^create_account/',
+        view=create_account,
         name='create-account-view'),
     url(regex='^customercharge/',
-        view=processcustomerandcharge,
+        view=process_customer_and_charge,
         name='process-customer-view'),
     url(regex='^customercreate/',
-        view=processview,
+        view=process_view,
         name='process-view'),
     url(regex='^paymenttest/',
-        view=paymentview,
+        view=payment_view,
         name='payment-view'),
     # Project management
     url(regex='^pending-project/list/$',
