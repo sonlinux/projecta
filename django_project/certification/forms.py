@@ -356,7 +356,7 @@ class AttendeeForm(forms.ModelForm):
     class Meta:
         model = Attendee
         fields = (
-            'firstname',
+            "firstname",
             'surname',
             'email',
             'certifying_organisation',

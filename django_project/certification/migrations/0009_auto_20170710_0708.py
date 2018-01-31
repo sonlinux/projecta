@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterUniqueTogether(
             name='attendee',
-            unique_together=set([('firstname', 'surname', 'email', 'certifying_organisation')]),
+            unique_together=set([('first_name', 'surname', 'email', 'certifying_organisation')]),
         ),
         migrations.AlterUniqueTogether(
             name='certificate',

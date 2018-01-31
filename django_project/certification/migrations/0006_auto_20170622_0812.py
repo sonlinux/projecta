@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='attendee',
-            name='firstname',
+            name='first_name',
             field=models.CharField(help_text='First name of the attendee.', max_length=200),
         ),
         migrations.AlterField(

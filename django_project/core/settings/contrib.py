@@ -4,6 +4,13 @@ core.settings.contrib
 """
 from .base import *  # noqa
 import stripe
+from .secret import (
+    STRIPE_SECRET_KEY,
+    STRIPE_PUBLISHABLE_KEY,
+    STRIPE_CHARGE_CURRENCY,
+    STRIPE_APPLICATION_FEE,
+    STRIPE_CHARGE_AMOUNT
+)
 # Extra installed apps - grapelli needs to be added before others
 INSTALLED_APPS = (
     'grappelli',
@@ -40,8 +47,12 @@ STOP_WORDS = (
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Stripe Config
-STRIPE_KEY = "sk_test_OHW7bvLJhDtm1k2pI8AwIiEY"
+STRIPE_KEY = 'sk_test_OHW7bvLJhDtm1k2pI8AwIiEY'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_Hfs5jjuxLeOiEtUgtlQFF8Jz'
 stripe.api_key = STRIPE_KEY
+STRIPE_CHARGE_CURRENCY = STRIPE_CHARGE_CURRENCY
+STRIPE_APPLICATION_FEE = STRIPE_APPLICATION_FEE
+STRIPE_CHARGE_AMOUNT = STRIPE_CHARGE_AMOUNT
 OUR_CLIENT_ID = "ca_BM5OIMXOFqSOBjJcr4DrGHTsK3tLFuW3"
 MY_ACCOUNT = stripe.Account.retrieve("acct_1AzNDQGz66mVbJVl")
 MY_ACCOUNT_ID = MY_ACCOUNT.id

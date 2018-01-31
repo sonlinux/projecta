@@ -23,8 +23,7 @@ from braces.views import LoginRequiredMixin, StaffuserRequiredMixin
 from pure_pagination.mixins import PaginationMixin
 from changes.models import Version
 from ..models import Project
-from ..models import Merchants
-from ..models import Charges
+from ..models import Merchants, Charges
 from ..forms import ProjectForm, ScreenshotFormset
 from vota.models import Committee, Ballot
 from changes.models import SponsorshipPeriod
@@ -147,8 +146,8 @@ class ProjectDetailView(ProjectMixin, DetailView):
         if userid==projectid:
             flag=True
         username = user
-        print("userid: %s" % userid)
-        print("projectid: %s" % projectid)
+        print("user_id: %s" % userid)
+        print("project_id: %s" % projectid)
         print("username: %s"%username)
         #Lookup username in merchant db
         merchuser = Merchants.objects.filter(firstname=username).exists()
@@ -170,7 +169,7 @@ class ProjectDetailView(ProjectMixin, DetailView):
         context['merchuser']=merchuser
         context['flag']=flag
         graphqueryset = Charges.objects.all()
-        data_source = ModelDataSource(graphqueryset,fields=['date','chargeAmount'])
+        data_source = ModelDataSource(graphqueryset,fields=['date','charge_amount'])
         chart = LineChart(data_source,options = {'title': 'Sponsorship Growth'},width=750)
         chart2 = BarChart(data_source,options = {'title': 'Sponsorship Growth'},width=750)
         chart3 = ColumnChart(data_source,options = {'title': 'Sponsorship Growth'},width=750)

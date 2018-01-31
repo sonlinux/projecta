@@ -19,7 +19,7 @@ def increment_slug(_firstname, _surname):
     """Function to increment slug.
 
     If there is already attendee that is registered in the system
-    who has the same firstname and surname with the new attendee
+    who has the same first_name and surname with the new attendee
     that will be registered, the slug will be incremented
     e.g. anita-hapsari, anita-hapsari-2, anita-hapsari-3, etc.
 

@@ -128,7 +128,7 @@ class TestAttendee(TestCase):
 
         model = AttendeeF.create()
         new_model_data = {
-            'firstname': 'new attendee firstname',
+            'first_name': 'new attendee first_name',
             'surname': 'new attendee surname',
             'email': 'new attendee email'
         }

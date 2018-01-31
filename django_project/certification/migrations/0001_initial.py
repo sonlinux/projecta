@@ -21,14 +21,14 @@ class Migration(migrations.Migration):
             name='Attendee',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('firstname', models.CharField(help_text=b'First name of the course attendee.', max_length=200)),
+                ('first_name', models.CharField(help_text=b'First name of the course attendee.', max_length=200)),
                 ('surname', models.CharField(help_text=b'Surname of the course attendee.', max_length=200)),
                 ('email', models.CharField(help_text=b'Email address.', max_length=200)),
                 ('slug', models.SlugField()),
                 ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
-                'ordering': ['firstname'],
+                'ordering': ['first_name'],
             },
         ),
         migrations.CreateModel(

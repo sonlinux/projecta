@@ -1,31 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form action={% url 'create-charge-view' %} method=POST>
-{% csrf_token %}
-<h1>To which project would you like to donate?</h1>
-<select name="projects">
-{% for i in dbmerchreq %}
-        <option value={{ i.id }}>
-            {{ i.name }}</option>
-{% endfor %}
-</select>
-<input type="submit" value="Pay $420">
-</form>
+{% extends "project_base.html" %}
+{% load custom_markup %}
 
-<h1>Project not on list?</h1>
-<p>If you do not see the project you wish to donate to on the list then they haven't set up their financial information.
-Below is a list of such projects.</p>
-<select name="projects">
-{% for i in projects%}
-        <option value={{ i.id }}>
-            {{ i.name }}</option>
-{% endfor %}
-</select>
+{% block title %}Select project to donate to - {{ block.super }}{% endblock %}
 
-</body>
-</html>
+{% block extra_head %}
+{% endblock %}
+
+{% block page_title %}
+  <h1>Select project</h1>
+{% endblock page_title %}
+
+{% block content %}
+     <form action={% url 'create-charge-view' %} method=POST> {% csrf_token %}
+    <h1>To which project would you like to donate?</h1>
+    <select name="projects">
+{#    0#}
+    </select>
+    <input type="submit" value="Pay $420">
+    </form>
+
+    <h1>Project not on list?</h1>
+    <p>If you do not see the project you wish to donate to on the list then they haven't set up their financial information.
+    Below is a list of such projects.</p>
+    <select name="projects">
+    {% for i in projects%}
+            <option value={{ i.id }}>
+                {{ i.name }}</option>
+    {% endfor %}
+    </select>
+{% endblock %}

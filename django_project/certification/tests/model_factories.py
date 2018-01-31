@@ -89,7 +89,7 @@ class AttendeeF(factory.django.DjangoModelFactory):
     class Meta:
         model = Attendee
 
-    firstname = factory.sequence(lambda n: u'Test attendee firstname %s' % n)
+    firstname = factory.sequence(lambda n: u'Test attendee first_name %s' % n)
     surname = factory.sequence(lambda n: u'Test surname %s' % n)
     email = factory.sequence(lambda n: u'Test email %s' % n)
     author = factory.SubFactory(UserF)

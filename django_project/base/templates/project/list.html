@@ -71,8 +71,7 @@
         Projects
         {% if user.is_authenticated %}
             <div class="pull-right btn-group">
-            Make donation
-            <a class="btn btn-default tooltip-toggle"
+            <a class="btn btn-default fa fa-credit-card"
                 href='{% url "process-customer-view" %}'
                 data-title="Donate to a project">
                 {% show_button_icon "add" %}
