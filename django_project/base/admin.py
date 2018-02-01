@@ -13,6 +13,11 @@ Note these admin models inherit reversion (which provides history for a model).
 
 from django.contrib import admin
 from models import Project, ProjectScreenshot
+from models.stripe_payments import (
+    Merchants,
+    Customer,
+    Charges
+)
 import reversion
 
 
@@ -40,5 +45,11 @@ class ProjectAdmin(reversion.VersionAdmin):
             qs = qs.order_by(*ordering)
         return qs
 
+class MerchantAdmin(admin.ModelAdmin):
+    """Admin for the merchant model."""
+    list_display = ['firstname', 'merchantid']
+
+    class Meta:
+        model = Merchants
 
 admin.site.register(Project, ProjectAdmin)
